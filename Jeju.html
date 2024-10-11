@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TourMate - Jeju</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCs9iaIlNoA00AzEyhokHBY_-Ne8vGahnM&callback=initMap"></script>
+</head>
+<body>
+
+  <header>
+    <h1>Explore Jeju</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="busan.html">Busan</a></li>
+        <li><a href="daegu.html">Daegu</a></li>
+        <li><a href="daejeon.html">Daejeon</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section>
+    <h2>Welcome to Jeju</h2>
+    <p>Jeju Island is known for its volcanic landscapes, natural beauty, and UNESCO World Heritage sites. Explore Hallasan Mountain and the stunning beaches around the island.</p>
+    <div id="map" style="width:100%;height:400px;"></div>
+  </section>
+
+  <footer>
+    <p>© 2024 TourMate. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    function initMap() {
+      var jeju = { lat: 33.4996, lng: 126.5312 };
+      var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 12,
+        center: jeju
+      });
+      var marker = new google.maps.Marker({ position: jeju, map: map });
+    }
+  </script>
+</body>
+</html>

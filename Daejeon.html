@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TourMate - Daejeon</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCs9iaIlNoA00AzEyhokHBY_-Ne8vGahnM&callback=initMap"></script>
+</head>
+<body>
+
+  <header>
+    <h1>Explore Daejeon</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="busan.html">Busan</a></li>
+        <li><a href="daegu.html">Daegu</a></li>
+        <li><a href="jeju.html">Jeju</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section>
+    <h2>Welcome to Daejeon</h2>
+    <p>Daejeon is famous for its science parks, museums, and advanced technology industries. Don’t miss the Daejeon O-World theme park and the beautiful Hanbat Arboretum.</p>
+    <div id="map" style="width:100%;height:400px;"></div>
+  </section>
+
+  <footer>
+    <p>© 2024 TourMate. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    function initMap() {
+      var daejeon = { lat: 36.3504, lng: 127.3845 };
+      var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 12,
+        center: daejeon
+      });
+      var marker = new google.maps.Marker({ position: daejeon, map: map });
+    }
+  </script>
+</body>
+</html>

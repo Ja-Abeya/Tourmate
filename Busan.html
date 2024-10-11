@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TourMate - Busan</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCs9iaIlNoA00AzEyhokHBY_-Ne8vGahnM&callback=initMap"></script>
+</head>
+<body>
+
+  <header>
+    <h1>Explore Busan</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="daegu.html">Daegu</a></li>
+        <li><a href="daejeon.html">Daejeon</a></li>
+        <li><a href="jeju.html">Jeju</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section>
+    <h2>Welcome to Busan</h2>
+    <p>Busan is a coastal city known for its beautiful beaches, vibrant culture, and delicious seafood. Here you can enjoy attractions like Haeundae Beach, Gwangalli Beach, and the picturesque Gamcheon Culture Village.</p>
+    <div id="map" style="width:100%;height:400px;"></div>
+  </section>
+
+  <footer>
+    <p>© 2024 TourMate. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    function initMap() {
+      var busan = { lat: 35.1796, lng: 129.0756 };
+      var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 12,
+        center: busan
+      });
+      var marker = new google.maps.Marker({ position: busan, map: map });
+    }
+  </script>
+</body>
+</html>

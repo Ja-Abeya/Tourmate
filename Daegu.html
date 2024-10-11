@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TourMate - Daegu</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCs9iaIlNoA00AzEyhokHBY_-Ne8vGahnM&callback=initMap"></script>
+</head>
+<body>
+
+  <header>
+    <h1>Explore Daegu</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="busan.html">Busan</a></li>
+        <li><a href="daejeon.html">Daejeon</a></li>
+        <li><a href="jeju.html">Jeju</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section>
+    <h2>Welcome to Daegu</h2>
+    <p>Daegu is known for its vibrant traditional markets, modern festivals, and historical sites. Visit the iconic Apsan Park and Dongseong-ro Street for shopping and dining.</p>
+    <div id="map" style="width:100%;height:400px;"></div>
+  </section>
+
+  <footer>
+    <p>© 2024 TourMate. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    function initMap() {
+      var daegu = { lat: 35.8722, lng: 128.6025 };
+      var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 12,
+        center: daegu
+      });
+      var marker = new google.maps.Marker({ position: daegu, map: map });
+    }
+  </script>
+</body>
+</html>
