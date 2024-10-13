@@ -3,32 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>TourMate - Explore South Korea</title>
+    <!-- Link to external CSS file -->
     <link rel="stylesheet" href="css/style.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
   <header>
-    <h1>Welcome to TourMate</h1>
-    <nav>
-      <ul>
-        <li><a href="busan.html">Busan</a></li>
-        <li><a href="daegu.html">Daegu</a></li>
-        <li><a href="daejeon.html">Daejeon</a></li>
-        <li><a href="jeju.html">Jeju</a></li>
-      </ul>
-    </nav>
+    <div class="container">
+      <h1>Welcome to TourMate</h1>
+      <nav class="top-nav">
+        <ul>
+          <li><a href="#">Cities</a>
+            <ul class="dropdown">
+              <li><a href="busan.html">Busan</a></li>
+              <li><a href="daegu.html">Daegu</a></li>
+              <li><a href="daejeon.html">Daejeon</a></li>
+              <li><a href="jeju.html">Jeju</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
-  <section>
-    <h2>Discover Korea’s Most Beautiful Cities</h2>
-    <p>Click on a city to explore its top attractions, local food, and more!</p>
+  <section class="intro">
+    <div class="container">
+      <h2>Explore South Korea</h2>
+      <p>Welcome to TourMate, your go-to guide for exploring South Korea’s vibrant cities. Discover rich culture, stunning landscapes, and delicious cuisine across Busan, Daegu, Daejeon, and Jeju.</p>
+    </div>
   </section>
 
   <footer>
-    <p>© 2024 TourMate. All Rights Reserved.</p>
+    <div class="container">
+      <p>&copy; 2024 TourMate. All Rights Reserved.</p>
+    </div>
   </footer>
 
+  <!-- Link to external JS file -->
   <script src="js/script.js"></script>
+
 </body>
 </html>
