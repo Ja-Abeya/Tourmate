@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seoul Tourist Guide</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background: #0073e6;
+            color: #fff;
+            padding: 15px 0;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            margin: 0;
+        }
+        nav {
+            margin: 10px 0;
+        }
+        nav a {
+            color: #fff;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        section {
+            padding: 20px;
+            margin: 10px auto;
+            max-width: 800px;
+            background: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        footer {
+            text-align: center;
+            padding: 15px;
+            background: #0073e6;
+            color: #fff;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+        .attraction {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 20px;
+        }
+        .attraction h3 {
+            color: #0073e6;
+            margin-top: 0;
+            cursor: pointer; /* Indicates clickable */
+        }
+        .attraction img {
+            width: 30%;
+            height: auto;
+            border-radius: 5px;
+        }
+        .search {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .search input {
+            padding: 10px;
+            width: 75%;
+            max-width: 350px;
+            border: 1px solid #0073e6;
+            border-radius: 5px;
+            transition: border 0.3s;
+        }
+        .search input:focus {
+            border-color: #005bb5;
+            outline: none;
+        }
+        .search button {
+            padding: 10px 15px;
+            border: none;
+            background-color: #0073e6;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .search button:hover {
+            background-color: #005bb5;
+        }
+        .search button:active {
+            background-color: #004a99;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Seoul Tourist Guide</h1>
+        <nav>
+            <a href="#attractions">Attractions</a>
+            <a href="#food">Restaurants</a>
+            <a href="#culture">Culture</a>
+        </nav>
+    </header>
+
+    <section id="attractions">
+        <h2>Main Attractions</h2>
+        <div class="search">
+            <input type="text" id="searchInput" placeholder="Search Attractions">
+            <button id="searchBtn">Search</button>
+        </div>
+        <div id="attractionList">
+            <div class="attraction" data-name="Namsan Seoul Tower">
+                <h3 onclick="openGoogleMaps('Namsan Seoul Tower')">Namsan Seoul Tower</h3>
+                <img src="https://50plus.or.kr/upload/im/2020/07/b8a92503-f34a-4aff-99dd-546fa06c47cc.jpg" alt="Namsan Seoul Tower">
+                <p>Namsan Seoul Tower is a landmark of Seoul where you can enjoy a panoramic view of the city.</p>
+            </div>
+            <div class="attraction" data-name="Myeongdong">
+                <h3 onclick="openGoogleMaps('Myeongdong')">Myeongdong</h3>
+                <img src="https://lh3.googleusercontent.com/proxy/kk1Dx0y51tcKFj61Lwgn_PEB7muF_YoHzq49FaleZvb2SfLIi4mODkzIBigs7BPug2YVtNUcRu8" alt="Myeongdong">
+                <p>Myeongdong is a lively area famous for shopping, dining, and street performances.</p>
+            </div>
+            <div class="attraction" data-name="Gyeongbokgung Palace">
+                <h3 onclick="openGoogleMaps('Gyeongbokgung Palace')">Gyeongbokgung Palace</h3>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQGI212V96YIxA1i56xb9JWuSVfz7nISCxIg&s" alt="Gyeongbokgung Palace">
+                <p>Gyeongbokgung Palace is a major royal palace of the Joseon Dynasty, known for its beautiful architecture and rich historical background.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="food">
+        <h2>Recommended Restaurants</h2>
+        <div class="search">
+            <input type="text" id="foodSearchInput" placeholder="Search Restaurants">
+            <button id="foodSearchBtn">Search</button>
+        </div>
+        <div id="foodList">
+            <div class="attraction" data-name="Gwangjang Market" data-lat="37.5702" data-lng="126.9990">
+                <h3 onclick="showOnMap('Gwangjang Market', 37.5702, 126.9990)">Gwangjang Market</h3>
+                <img src="https://file.mk.co.kr/meet/neds/2023/12/image_readmed_2023_992760_17038273825771660.jpg" alt="Gwangjang Market">
+                <p>Gwangjang Market is a famous market offering a variety of traditional foods.</p>
+            </div>
+            <div class="attraction" data-name="Itaewon" data-lat="37.5348" data-lng="126.9992">
+                <h3 onclick="showOnMap('Itaewon', 37.5348, 126.9992)">Itaewon</h3>
+                <img src="https://tong.visitkorea.or.kr/upload/traveli/fileup/1386544149477.jpg" alt="Itaewon">
+                <p>Itaewon is a multicultural area where you can taste a variety of international cuisines.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="culture">
+        <h2>Cultural Experiences</h2>
+        <div class="search">
+            <input type="text" id="cultureSearchInput" placeholder="Search Cultural Experiences">
+            <button id="event">Search</button>
+        </div>
+        <div id="cultureList">
+            <div class="attraction" data-name="National Museum of Korea" data-lat="37.5267" data-lng="126.9808">
+                <h3 onclick="showOnMap('National Museum of Korea', 37.5267, 126.9808)">National Museum of Korea</h3>
+                <img src="https://cdn.sbiztoday.kr/news/photo/201902/4979_6026_214.jpg" alt="National Museum of Korea">
+                <p>The National Museum of Korea is a leading museum showcasing Korean history and culture.</p>
+            </div>
+            <div class="attraction" data-name="Bukchon Hanok Village" data-lat="37.5824" data-lng="126.9834">
+                <h3 onclick="showOnMap('Bukchon Hanok Village', 37.5824, 126.9834)">Bukchon Hanok Village</h3>
+                <img src="https://i.namu.wiki/i/DEvKxYg-TEz6O53jeZyS9kndJSgSQnFysm3T-R70yXIyWi9-HknJZXoK1ghHFMwB365TyyMj7MlIebAKMrLSFA.webp" alt="Bukchon Hanok Village">
+                <p>Bukchon Hanok Village is an area where traditional hanok houses are well-preserved, allowing visitors to experience Korean traditional culture.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Seoul Tourist Guide</p>
+    </footer>
+
+    <script>
+        const clientId = 'Cb3iNaqgfpkx6ZJYiO4R'; // Enter your client ID here.
+        const clientSecret = '_VOJu6ZYS3'; // Enter your client secret here.
+        const searchInput = document.getElementById('searchInput');
+        const searchBtn = document.getElementById('searchBtn');
+        const attractionList = document.getElementById('attractionList');
+
+        searchBtn.addEventListener('click', () => {
+            const query = searchInput.value;
+
+            // Naver API request
+            fetch(`https://openapi.naver.com/v1/search/local.json?query=${encodeURIComponent(query)}`, {
+                method: 'GET',
+                headers: {
+                    'X-Naver-Client-Id': clientId,
+                    'X-Naver-Client-Secret': clientSecret,
+                }
+            })
+                .then(response => response.json())
+                .then(data => {
+                    // Clear existing attractions
+                    attractionList.innerHTML = '';
+
+                    if (data.items.length === 0) {
+                        attractionList.innerHTML = '<p>No results found.</p>';
+                    } else {
+                        data.items.forEach(place => {
+                            const attractionDiv = document.createElement('div');
+                            attractionDiv.classList.add('attraction');
+                            attractionDiv.innerHTML = `
+                                <h3 onclick="openGoogleMaps('${place.title}')">${place.title}</h3>
+                                <img src="${place.mapy}" alt="${place.title}">
+                                <p>${place.address}</p>
+                            `;
+                            attractionList.appendChild(attractionDiv);
+                        });
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+        });
+
+        function openGoogleMaps(place) {
+            const encodedPlace = encodeURIComponent(place);
+            window.open(`https://www.google.com/maps/search/?api=1&query=${encodedPlace}`, '_blank');
+        }
+
+        function showOnMap(name, lat, lng) {
+            window.open(`https://www.google.com/maps/search/?api=1&query=${lat},${lng}`, '_blank');
+        }
+    </script>
+</body>
+</html>
