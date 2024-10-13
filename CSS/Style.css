@@ -1,4 +1,3 @@
-/* General Styles */
 body {
   font-family: Arial, sans-serif;
   background-color: #f4f4f4;
@@ -48,8 +47,8 @@ section {
 
 /* Map container styling */
 #map {
-  width: 100%;       /* Ensure the map spans the full width */
-  height: 400px;      /* Set a fixed height to ensure the map is visible */
+  width: 100%;       
+  height: 400px;     
 }
 
 /* Footer */
