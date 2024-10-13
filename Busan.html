@@ -3,43 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TourMate - Busan</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Explore Busan - TourMate</title>
+    <!-- Link to external CSS file -->
     <link rel="stylesheet" href="css/style.css">
-    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCs9iaIlNoA00AzEyhokHBY_-Ne8vGahnM&callback=initMap"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Google Maps API with your API key -->
+    <script async
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCs9iaIlNoA00AzEyhokHBY_-Ne8vGahnM&callback=initMap"></script>
 </head>
 <body>
 
   <header>
-    <h1>Explore Busan</h1>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="daegu.html">Daegu</a></li>
-        <li><a href="daejeon.html">Daejeon</a></li>
-        <li><a href="jeju.html">Jeju</a></li>
-      </ul>
-    </nav>
+    <div class="container">
+      <h1>Discover Busan</h1>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="daegu.html">Daegu</a></li>
+          <li><a href="daejeon.html">Daejeon</a></li>
+          <li><a href="jeju.html">Jeju</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
-  <section>
-    <h2>Welcome to Busan</h2>
-    <p>Busan is a coastal city known for its beautiful beaches, vibrant culture, and delicious seafood. Here you can enjoy attractions like Haeundae Beach, Gwangalli Beach, and the picturesque Gamcheon Culture Village.</p>
-    <div id="map" style="width:100%;height:400px;"></div>
+  <section class="intro">
+    <div class="container">
+      <h2>Welcome to Busan</h2>
+      <p>Busan is a bustling city in South Korea, famous for its stunning beaches, rich cultural heritage, and vibrant nightlife. Some of the top attractions include Haeundae Beach, the picturesque Gamcheon Culture Village, and the bustling Jagalchi Fish Market.</p>
+      <p>Whether you're here for the beach, hiking, or the rich history, Busan has something for everyone.</p>
+    </div>
+  </section>
+
+  <section class="map-section">
+    <div class="container">
+      <h3>Explore Busan on the Map</h3>
+      <div id="map"></div>
+    </div>
   </section>
 
   <footer>
-    <p>© 2024 TourMate. All Rights Reserved.</p>
+    <div class="container">
+      <p>&copy; 2024 TourMate. All Rights Reserved.</p>
+    </div>
   </footer>
 
-  <script>
-    function initMap() {
-      var busan = { lat: 35.1796, lng: 129.0756 };
-      var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 12,
-        center: busan
-      });
-      var marker = new google.maps.Marker({ position: busan, map: map });
-    }
-  </script>
+  <!-- Link to external JS file -->
+  <script src="js/script.js"></script>
+
 </body>
 </html>
