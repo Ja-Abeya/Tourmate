@@ -103,12 +103,12 @@
 
   <script>
     function initMap() {
-      var daegu = { lat: 35.8722, lng: 128.6025 };
+      var daejeon = { lat: 36.3504, lng: 127.3845 }; // 대전 좌표로 변경
       var map = new google.maps.Map(document.getElementById('map'), {
         zoom: 12,
-        center: daegu
+        center: daejeon
       });
-      var marker = new google.maps.Marker({ position: daegu, map: map });
+      var marker = new google.maps.Marker({ position: daejeon, map: map });
     }
   </script>
 </body>
