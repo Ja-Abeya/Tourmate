@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>대전 이벤트 목록</title>
+    <title>TourMate - Daejeon</title>
+    <link rel="stylesheet" href="css/style.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -11,9 +12,27 @@
             padding: 0;
             background-color: #f4f4f4;
         }
-        h1 {
+        header {
             text-align: center;
+            margin-bottom: 20px;
+        }
+        h1 {
             color: #4CAF50;
+        }
+        h2 {
+            color: #333;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin-right: 10px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
         }
         .event {
             background-color: white;
@@ -32,20 +51,44 @@
             margin: 5px 0;
             color: #555;
         }
-        .event-detail strong {
-            color: #333;
+        #dateSearchForm {
+            text-align: center;
+            margin-bottom: 20px;
         }
-        @media (max-width: 600px) {
-            .event {
-                padding: 10px;
-            }
-            .event-title {
-                font-size: 1.3em;
-            }
+        #dateSearchForm label {
+            margin-right: 10px;
+        }
+        #map {
+            width: 100%;
+            height: 400px;
+            margin-bottom: 20px;
+        }
+        #result {
+            text-align: center;
+            margin-top: 20px;
         }
     </style>
+    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCs9iaIlNoA00AzEyhokHBY_-Ne8vGahnM&callback=initMap"></script>
 </head>
 <body>
+
+<header>
+    <h1>Explore Daejeon</h1>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="busan.html">Busan</a></li>
+            <li><a href="daegu.html">Daegu</a></li>
+            <li><a href="jeju.html">Jeju</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section>
+    <h2>Welcome to Daejeon</h2>
+    <p>Daejeon is famous for its science parks, museums, and advanced technology industries. Don’t miss the Daejeon O-World theme park and the beautiful Hanbat Arboretum.</p>
+    <div id="map"></div>
+
     <form id="dateSearchForm">
         <label for="startDate">시작일:</label>
         <input type="date" id="startDate" required>
@@ -55,107 +98,116 @@
         
         <button type="submit">검색</button>
     </form>
-    <h1>대전 이벤트 목록</h1>
+
     <div id="eventList"></div>
-
-
-    <br>
-    
     <div id="result"></div>
+</section>
 
-    <script>
-        const apiUrl = "https://apis.data.go.kr/6300000/eventDataService/eventDataListJson?serviceKey=Jw2oAidGLR16SOZUB2qUKcDezPYS82ewHT2FBzPdaxCtaxyTCfSj9ZdsqtF0%2Fgylb78DE17RH%2B7Bafp2IIunOg%3D%3D&numOfRows=1000&pageNo=1";
-        let events = [];
+<footer>
+    <p>© 2024 TourMate. All Rights Reserved.</p>
+</footer>
 
-        fetch(apiUrl)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error("네트워크 응답이 좋지 않습니다.");
-                }
-                return response.json();
-            })
-            .then(data => {
-                if (data.msgBody) {
-                    events = data.msgBody;
-                    displayEvents(events); // 모든 이벤트 표시
-                } else {
-                    console.error("msgBody가 정의되지 않았습니다.");
-                }
-            })
-            .catch(error => {
-                console.error("오류 발생:", error);
-            });
+<script>
+    const apiUrl = "https://apis.data.go.kr/6300000/eventDataService/eventDataListJson?serviceKey=Jw2oAidGLR16SOZUB2qUKcDezPYS82ewHT2FBzPdaxCtaxyTCfSj9ZdsqtF0%2Fgylb78DE17RH%2B7Bafp2IIunOg%3D%3D&numOfRows=1000&pageNo=1";
+    let events = [];
 
-        function displayEvents(eventsToDisplay) {
-            const eventList = document.getElementById("eventList");
-            eventList.innerHTML = ''; // 기존 이벤트 목록 초기화
-
-            if (eventsToDisplay.length === 0) {
-                eventList.innerHTML = '<p>검색 결과가 없습니다.</p>';
-            } else {
-                eventsToDisplay.forEach(event => {
-                    const eventDiv = document.createElement("div");
-                    eventDiv.className = "event";
-
-                    const title = document.createElement("h2");
-                    title.className = "event-title";
-                    title.textContent = event.title;
-
-                    const contents = document.createElement("p");
-                    contents.className = "event-detail";
-                    contents.innerHTML = event.contents;
-
-                    const beginTime = document.createElement("p");
-                    beginTime.className = "event-detail";
-                    beginTime.innerHTML = `<strong>시작 시간:</strong> ${event.beginTm}`;
-
-                    const endTime = document.createElement("p");
-                    endTime.className = "event-detail";
-                    endTime.innerHTML = `<strong>종료 시간:</strong> ${event.endTm}`;
-
-                    const place = document.createElement("p");
-                    place.className = "event-detail";
-                    place.innerHTML = `<strong>장소:</strong> ${event.placeDetail}`;
-
-                    const startDate = document.createElement("p");
-                    startDate.className = "event-detail";
-                    startDate.innerHTML = `<strong>시작일:</strong> ${event.beginDt}`;
-
-                    const endDate = document.createElement("p");
-                    endDate.className = "event-detail";
-                    endDate.innerHTML = `<strong>종료일:</strong> ${event.endDt}`;
-
-                    eventDiv.appendChild(title);
-                    eventDiv.appendChild(contents);
-                    eventDiv.appendChild(beginTime);
-                    eventDiv.appendChild(endTime);
-                    eventDiv.appendChild(place);
-                    eventDiv.appendChild(startDate);
-                    eventDiv.appendChild(endDate);
-
-                    eventList.appendChild(eventDiv);
-                });
+    fetch(apiUrl)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("네트워크 응답이 좋지 않습니다.");
             }
-        }
-
-        document.getElementById('dateSearchForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // 기본 제출 방지
-
-            const startDate = document.getElementById('startDate').value;
-            const endDate = document.getElementById('endDate').value;
-
-            // 입력값 검증
-            if (new Date(startDate) > new Date(endDate)) {
-                document.getElementById('result').innerText = '시작일은 종료일보다 앞서야 합니다.';
-                displayEvents(events); // 원래 이벤트 목록 표시
+            return response.json();
+        })
+        .then(data => {
+            if (data.msgBody) {
+                events = data.msgBody;
+                displayEvents(events);
             } else {
-                const filteredEvents = events.filter(event => {
-                    return event.beginDt >= startDate && event.endDt <= endDate;
-                });
-                displayEvents(filteredEvents);
-                document.getElementById('result').innerText = `검색 기간: ${startDate} ~ ${endDate}`;
+                console.error("msgBody가 정의되지 않았습니다.");
             }
+        })
+        .catch(error => {
+            console.error("오류 발생:", error);
         });
-    </script>
+
+    function displayEvents(eventsToDisplay) {
+        const eventList = document.getElementById("eventList");
+        eventList.innerHTML = '';
+
+        if (eventsToDisplay.length === 0) {
+            eventList.innerHTML = '<p>검색 결과가 없습니다.</p>';
+        } else {
+            eventsToDisplay.forEach(event => {
+                const eventDiv = document.createElement("div");
+                eventDiv.className = "event";
+
+                const title = document.createElement("h2");
+                title.className = "event-title";
+                title.textContent = event.title;
+
+                const contents = document.createElement("p");
+                contents.className = "event-detail";
+                contents.innerHTML = event.contents;
+
+                const beginTime = document.createElement("p");
+                beginTime.className = "event-detail";
+                beginTime.innerHTML = `<strong>시작 시간:</strong> ${event.beginTm}`;
+
+                const endTime = document.createElement("p");
+                endTime.className = "event-detail";
+                endTime.innerHTML = `<strong>종료 시간:</strong> ${event.endTm}`;
+
+                const place = document.createElement("p");
+                place.className = "event-detail";
+                place.innerHTML = `<strong>장소:</strong> ${event.placeDetail}`;
+
+                const startDate = document.createElement("p");
+                startDate.className = "event-detail";
+                startDate.innerHTML = `<strong>시작일:</strong> ${event.beginDt}`;
+
+                const endDate = document.createElement("p");
+                endDate.className = "event-detail";
+                endDate.innerHTML = `<strong>종료일:</strong> ${event.endDt}`;
+
+                eventDiv.appendChild(title);
+                eventDiv.appendChild(contents);
+                eventDiv.appendChild(beginTime);
+                eventDiv.appendChild(endTime);
+                eventDiv.appendChild(place);
+                eventDiv.appendChild(startDate);
+                eventDiv.appendChild(endDate);
+
+                eventList.appendChild(eventDiv);
+            });
+        }
+    }
+
+    document.getElementById('dateSearchForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const startDate = document.getElementById('startDate').value;
+        const endDate = document.getElementById('endDate').value;
+
+        if (new Date(startDate) > new Date(endDate)) {
+            document.getElementById('result').innerText = '시작일은 종료일보다 앞서야 합니다.';
+            displayEvents(events);
+        } else {
+            const filteredEvents = events.filter(event => {
+                return event.beginDt >= startDate && event.endDt <= endDate;
+            });
+            displayEvents(filteredEvents);
+            document.getElementById('result').innerText = `검색 기간: ${startDate} ~ ${endDate}`;
+        }
+    });
+
+    function initMap() {
+        const daejeon = { lat: 36.3504, lng: 127.3845 };
+        const map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 12,
+            center: daejeon
+        });
+        const marker = new google.maps.Marker({ position: daejeon, map: map });
+    }
+</script>
 </body>
 </html>
