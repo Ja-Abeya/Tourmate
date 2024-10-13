@@ -1,3 +1,4 @@
+/* General Styles */
 body {
     font-family: 'Montserrat', sans-serif;
     background-color: #f8f9fa;
@@ -6,7 +7,7 @@ body {
     line-height: 1.6;
 }
 
-h1, h2 {
+h1, h2, h3 {
     color: #2c3e50;
     margin: 0 0 15px;
 }
@@ -20,7 +21,7 @@ h1, h2 {
 header {
     background-color: #1e90ff;
     padding: 20px 0;
-    position: relative; /* For positioning dropdown */
+    position: relative;
 }
 
 header h1 {
@@ -45,7 +46,7 @@ header h1 {
 
 .top-nav li {
     display: inline-block;
-    position: relative; /* For dropdown positioning */
+    position: relative; 
 }
 
 .top-nav a {
@@ -58,19 +59,19 @@ header h1 {
 }
 
 .top-nav a:hover {
-    background-color: #34495e; /* Change background on hover */
+    background-color: #34495e; 
 }
 
 /* Dropdown Menu */
 .dropdown {
-    display: none; /* Hidden by default */
-    position: absolute; /* Position it below the parent item */
+    display: none; 
+    position: absolute; 
     background-color: #1e90ff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .top-nav li:hover .dropdown {
-    display: block; /* Show dropdown on hover */
+    display: block; 
 }
 
 .dropdown li {
@@ -78,12 +79,12 @@ header h1 {
 }
 
 .dropdown li a {
-    padding: 10px 15px; /* Add padding for dropdown links */
+    padding: 10px 15px; 
 }
 
-/* Section Styles */
+/* Intro Section Styles */
 .intro {
-    background-color: white;
+    background-color: #f0f8ff; 
     padding: 40px 0;
     margin-top: 20px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
@@ -91,15 +92,112 @@ header h1 {
 
 .intro h2 {
     text-align: center;
+    color: #2c3e50;
+    font-size: 2.5em; 
+}
+
+.intro p {
+    font-size: 1.2em; 
+    color: #34495e;
+    text-align: center;
+}
+
+/* Fun Facts Section */
+.fact-section {
+    background-color: white;
+    padding: 40px 20px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.fact-section h3 {
     color: #34495e;
     font-size: 2em;
 }
 
-.intro p {
+.fact-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.fact-section li {
     font-size: 1.1em;
     color: #7f8c8d;
+    margin: 10px 0;
+}
+
+/* Image Gallery Section */
+.image-gallery {
+    background-color: #ecf0f1;
+    padding: 40px 0;
+}
+
+.image-gallery h3 {
     text-align: center;
-    margin-bottom: 20px;
+    color: #34495e;
+    font-size: 2em;
+    margin-bottom: 20px; 
+}
+
+.image-gallery .gallery {
+    display: flex;
+    justify-content: center; 
+    flex-wrap: wrap;
+}
+
+.image-gallery img {
+    width: 25%; 
+    max-width: 200px; 
+    height: auto; 
+    border-radius: 10px;
+    margin: 10px; 
+}
+
+/* Section Styles */
+.content-section {
+    background-color: white;
+    padding: 40px 0;
+    margin-top: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.content-section h3 {
+    text-align: center;
+    color: #34495e;
+    font-size: 2em;
+    margin-bottom: 30px;
+}
+
+.gallery {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.item {
+    flex: 0 0 30%;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.item img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.item p {
+    margin-top: 10px;
+    font-size: 1.1em;
+    color: #7f8c8d;
+}
+
+/* Map Section */
+#map {
+    width: 100%; 
+    height: 500px; 
+    margin-top: 20px; 
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); 
 }
 
 /* Footer Styles */
@@ -118,11 +216,19 @@ footer {
     }
 
     .top-nav {
-        position: static; /* Adjust positioning for smaller screens */
+        position: static;
     }
 
     .top-nav li {
-        display: block; /* Stack links vertically */
-        margin: 10px 0; /* Add spacing */
+        display: block; 
+        margin: 10px 0; 
+    }
+
+    .image-gallery .gallery img {
+        width: 100%; 
+    }
+
+    .fact-section li {
+        font-size: 1em;
     }
 }
