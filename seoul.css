@@ -43,98 +43,33 @@ nav a:hover {
     border-radius: 5px;
 }
 
-/* Other Sites 버튼 */
-.other-sites-btn {
-    background-color: #FFB6C1;
-    color: white;
-    border: none;
-    padding: 12px 24px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background 0.3s;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.other-sites-btn:hover {
-    background-color: #FF6F91;
-}
-
-.other-sites-menu {
-    display: none;
-    position: absolute;
-    background-color: #FFB6C1;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    top: 50px;
-    right: 20px;
-    z-index: 1000;
-}
-
-.other-sites-menu ul {
-    list-style: none;
-    padding: 10px 0;
-    margin: 0;
-}
-
-.other-sites-menu ul li {
-    padding: 10px;
-    text-align: center;
-}
-
-.other-sites-menu ul li a {
-    color: white;
-    text-decoration: none;
-    font-size: 16px;
-    display: block;
-}
-
-.other-sites-menu ul li a:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-    border-radius: 5px;
-}
-
 /* 캐러셀 스타일 */
 .carousel-container {
     position: relative;
     overflow: hidden;
-    width: 100%;
     height: 100vh;
+    background-color: #ADD8E6;
 }
 
 .carousel {
     display: flex;
-    transition: transform 0.3s ease-in-out;
+    transition: transform 0.5s ease;
 }
 
 .carousel-item {
-    min-width: 100%;
-    height: 100%;
+    min-width: 100vw;
+    height: 100vh;
     display: flex;
-    justify-content: center;
     align-items: center;
-    flex-shrink: 0;
-}
-
-.carousel-item img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: cover;
-}
-
-.place-info {
+    justify-content: center;
     text-align: center;
-    color: white;
-    background: rgba(0, 0, 0, 0.5);
-    padding: 20px;
-    border-radius: 10px;
+    position: relative;
 }
 
-/* Hero 이미지 및 텍스트 */
 .hero-image {
     width: 100%;
     height: auto;
-    filter: brightness(0.75);
+    filter: brightness(0.75); /* 이미지 밝기 */
 }
 
 .hero-text {
@@ -211,8 +146,6 @@ nav a:hover {
     display: flex;
     justify-content: center;
     margin-bottom: 20px;
-    flex-direction: column; /* 세로 정렬로 수정 */
-    align-items: center;
 }
 
 .search-container input[type="text"] {
@@ -239,23 +172,22 @@ nav a:hover {
     background-color: #FF6F91;
 }
 
-/* 검색 결과 스타일 */
-#place-info {
-    margin-top: 20px;
-    padding: 20px;
-    background: rgba(255, 255, 255, 0.8);
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    color: #333;
-    display: none; /* 기본적으로 숨겨두기 */
-}
-
+/* 지도 및 정보 스타일 */
 #map {
     width: 100%;
     height: 500px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     margin-top: 20px;
+}
+
+.place-info {
+    margin-top: 20px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: #333;
 }
 
 /* 갤러리 스타일 */
@@ -282,3 +214,31 @@ nav a:hover {
 .gallery-container img:hover {
     transform: scale(1.05);
 }
+
+/* 다른 지역 버튼 스타일 */
+.other-sites-btn {
+   
+    background-size: cover;  /* 이미지를 버튼 크기에 맞게 조정 */
+    background-position: center;  /* 버튼 중앙에 이미지를 배치 */
+    border: none;  /* 기본 테두리 제거 */
+    padding: 10px 20px;  /* 버튼 안쪽 여백 */
+    color: black;  /* 글자 색 */
+    font-size: 16px;  /* 글자 크기 */
+    cursor: pointer;  /* 커서가 포인터로 변경 */
+    width: 200px;  /* 버튼 너비 (필요에 맞게 조정) */
+    height: 50px;  /* 버튼 높이 (필요에 맞게 조정) */
+    text-align: center;  /* 글자 중앙 정렬 */
+    display: flex;
+    justify-content: center; /* 버튼 내용 중앙 정렬 */
+    align-items: center; /* 버튼 내용 중앙 정렬 */
+    
+    position: absolute; /* 절대 위치 지정 */
+    top: 20px;  /* 화면 위쪽으로부터의 거리 */
+    right: 20px;  /* 화면 오른쪽 끝으로부터의 거리 */
+}
+
+/* 버튼에 마우스를 올렸을 때 스타일 */
+.other-sites-btn:hover {
+    opacity: 0.8;  /* 마우스를 올리면 버튼 투명도를 80%로 설정 */
+}
+
