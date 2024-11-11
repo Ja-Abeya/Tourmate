@@ -217,7 +217,6 @@ nav a:hover {
 
 /* 다른 지역 버튼 스타일 */
 .other-sites-btn {
-   
     background-size: cover;  /* 이미지를 버튼 크기에 맞게 조정 */
     background-position: center;  /* 버튼 중앙에 이미지를 배치 */
     border: none;  /* 기본 테두리 제거 */
@@ -242,3 +241,13 @@ nav a:hover {
     opacity: 0.8;  /* 마우스를 올리면 버튼 투명도를 80%로 설정 */
 }
 
+/* 반응형 모바일 스타일 */
+@media (max-width: 768px) {
+    .other-sites-btn {
+        width: 150px;  /* 버튼 너비를 모바일 화면에 맞게 줄임 */
+        height: 40px;  /* 버튼 높이 조정 */
+        font-size: 14px;  /* 버튼 글자 크기 줄이기 */
+        top: 15px;  /* 위쪽 여백 조정 */
+        right: 15px;  /* 오른쪽 여백 조정 */
+    }
+}
