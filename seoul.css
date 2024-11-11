@@ -1,0 +1,284 @@
+/* 공통 스타일 */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    overflow-x: hidden;
+    background-color: #FFF5F8; /* 연한 핑크 배경 */
+}
+
+header {
+    background-color: #FFB6C1; /* 연한 핑크 */
+    color: white;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 8px 16px;
+    transition: background 0.3s;
+}
+
+nav a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+}
+
+/* Other Sites 버튼 */
+.other-sites-btn {
+    background-color: #FFB6C1;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.other-sites-btn:hover {
+    background-color: #FF6F91;
+}
+
+.other-sites-menu {
+    display: none;
+    position: absolute;
+    background-color: #FFB6C1;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    top: 50px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.other-sites-menu ul {
+    list-style: none;
+    padding: 10px 0;
+    margin: 0;
+}
+
+.other-sites-menu ul li {
+    padding: 10px;
+    text-align: center;
+}
+
+.other-sites-menu ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    display: block;
+}
+
+.other-sites-menu ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+}
+
+/* 캐러셀 스타일 */
+.carousel-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 100vh;
+}
+
+.carousel {
+    display: flex;
+    transition: transform 0.3s ease-in-out;
+}
+
+.carousel-item {
+    min-width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.carousel-item img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+}
+
+.place-info {
+    text-align: center;
+    color: white;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+/* Hero 이미지 및 텍스트 */
+.hero-image {
+    width: 100%;
+    height: auto;
+    filter: brightness(0.75);
+}
+
+.hero-text {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #FFF;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+.hero-text h2 {
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+
+.hero-text p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.hero-text button {
+    background-color: #FFB6C1;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.hero-text button:hover {
+    background-color: #FF6F91;
+}
+
+/* 캐러셀 버튼 스타일 */
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.8);
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 1000;
+    border-radius: 50%;
+    color: #FFB6C1;
+    font-size: 24px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s;
+}
+
+.carousel-button:hover {
+    background: rgba(255, 182, 193, 1);
+}
+
+.carousel-button.prev {
+    left: 15px;
+}
+
+.carousel-button.next {
+    right: 15px;
+}
+
+/* 콘텐츠 영역 스타일 */
+.content {
+    padding: 40px 20px;
+    background-color: #FFF5F8;
+}
+
+.search-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    flex-direction: column; /* 세로 정렬로 수정 */
+    align-items: center;
+}
+
+.search-container input[type="text"] {
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #FFB6C1;
+    border-radius: 8px 0 0 8px;
+    width: 300px;
+    outline: none;
+}
+
+.search-container button {
+    background-color: #FFB6C1;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 0 8px 8px 0;
+    transition: background 0.3s;
+}
+
+.search-container button:hover {
+    background-color: #FF6F91;
+}
+
+/* 검색 결과 스타일 */
+#place-info {
+    margin-top: 20px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: #333;
+    display: none; /* 기본적으로 숨겨두기 */
+}
+
+#map {
+    width: 100%;
+    height: 500px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-top: 20px;
+}
+
+/* 갤러리 스타일 */
+#gallery {
+    background-color: #f0f8ff;
+    padding: 40px 20px;
+}
+
+.gallery-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.gallery-container img {
+    border-radius: 8px;
+    max-width: 100%;
+    height: auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.gallery-container img:hover {
+    transform: scale(1.05);
+}
